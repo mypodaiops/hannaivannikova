@@ -278,20 +278,11 @@ h1, h2, h3, h4 {
     color: var(--color-primary);
     border-color: var(--color-primary);
 }
+
 .btn--outline:hover {
     background: var(--color-primary);
     color: #fff;
     transform: translateY(-2px);
-}
-
-.btn--ghost {
-    background: transparent;
-    color: var(--color-text-light);
-    border-color: transparent;
-    font-weight: 500;
-}
-.btn--ghost:hover {
-    color: var(--color-primary);
 }
 
 /* ===========================================
@@ -890,19 +881,6 @@ h1, h2, h3, h4 {
 
 .cta__actions .btn--outline {
     min-width: 280px;
-}
-
-.cta__actions .btn--ghost {
-    color: var(--color-text);
-    font-weight: 600;
-    border-bottom: 1px dotted var(--color-text-light);
-    padding: var(--space-2) var(--space-4);
-    border-radius: 0;
-    font-size: var(--text-sm);
-}
-.cta__actions .btn--ghost:hover {
-    color: var(--color-accent-dark);
-    border-bottom-color: var(--color-accent-dark);
 }
 
 /* ===========================================
