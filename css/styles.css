@@ -594,14 +594,15 @@ h1, h2, h3, h4 {
     background: var(--color-bg);
 }
 
-.why__content {
-    max-width: 800px;
-    margin: 0 auto;
+.why__split {
     display: flex;
     flex-direction: column;
     gap: var(--space-8);
+    max-width: 860px;
+    margin: 0 auto;
 }
 
+/* --- Problems column --- */
 .why__problems {
     display: flex;
     flex-direction: column;
@@ -612,26 +613,36 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     gap: var(--space-4);
-    padding: var(--space-4) var(--space-5);
+    padding: var(--space-5) var(--space-5);
     background: #fef2f2;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius);
     font-weight: 500;
     border-left: 4px solid #ef4444;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.why__problem:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.12);
 }
 
 .why__icon {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     flex-shrink: 0;
+    width: 32px;
+    text-align: center;
 }
 
+/* --- Vertical divider (desktop) --- */
 .why__divider {
     width: 60px;
     height: 3px;
     background: var(--color-accent);
     border-radius: 2px;
     margin: 0 auto;
+    flex-shrink: 0;
 }
 
+/* --- Solutions column --- */
 .why__solutions {
     background: linear-gradient(135deg, #f0fdf4, #f7fee7);
     border: 2px solid #86efac;
@@ -664,9 +675,10 @@ h1, h2, h3, h4 {
     font-family: var(--font-display);
     color: var(--color-accent-dark);
     text-align: center;
-    padding: var(--space-6) var(--space-4);
-    border-left: 3px solid var(--color-accent);
+    padding: var(--space-6);
+    border-top: 2px solid var(--color-accent);
     line-height: 1.5;
+    font-style: italic;
 }
 
 /* ===========================================
@@ -1111,8 +1123,31 @@ h1, h2, h3, h4 {
     }
 
     /* Why */
-    .why__content {
-        gap: var(--space-10);
+    .why__split {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0;
+    }
+    .why__problems {
+        flex: 1;
+        justify-content: center;
+    }
+    .why__divider {
+        width: 3px;
+        height: auto;
+        margin: 0 var(--space-8);
+    }
+    .why__solutions {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .why__solutions h3 {
+        margin-top: 0;
+    }
+    .why__quote {
+        margin-bottom: 0;
     }
 
     /* Footer */
