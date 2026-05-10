@@ -12,9 +12,10 @@
 
 Just open `index.html` in any browser — no build step required.
 
-## Deployment
+## Domain
 
-Live at: **https://mypodaiops.github.io/hannaivannikova/**
+Custom domain: **hannaivannikova.com**
+GitHub Pages fallback: https://mypodaiops.github.io/hannaivannikova/
 
 ## License
 
