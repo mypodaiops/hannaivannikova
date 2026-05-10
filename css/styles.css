@@ -804,6 +804,7 @@ h1, h2, h3, h4 {
 .results {
     background: var(--color-primary);
     color: #fff;
+}
 
 .results .section__title {
     color: #fff;
