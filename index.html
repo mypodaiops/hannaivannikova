@@ -54,6 +54,17 @@
         <!-- ===== HERO ===== -->
         <section class="hero" id="hero">
             <div class="hero__bg"></div>
+            <!-- Floating gold particles -->
+            <div class="hero__particles" aria-hidden="true">
+                <div class="hero__particle"></div>
+                <div class="hero__particle"></div>
+                <div class="hero__particle"></div>
+                <div class="hero__particle"></div>
+                <div class="hero__particle"></div>
+                <div class="hero__particle"></div>
+                <div class="hero__particle"></div>
+                <div class="hero__particle"></div>
+            </div>
             <!-- Decorative growth chart -->
             <div class="hero__graph" aria-hidden="true">
                 <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,11 +110,10 @@
                 </div>
                 <div class="about__content">
                     <div class="about__photo">
-                        <div class="about__photo-placeholder">
-                            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="120" height="120" rx="60" fill="#e2e8f0"/>
-                                <circle cx="60" cy="50" r="18" fill="#cbd5e1"/>
-                                <ellipse cx="60" cy="96" rx="32" ry="22" fill="#cbd5e1"/>
+                        <div class="about__photo-placeholder" style="background: linear-gradient(135deg, #0f172a, #1e3a5f); display: flex; align-items: center; justify-content: center; width: 160px; height: 160px; border-radius: 50%; border: 3px solid #c9a84c;">
+                            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                <circle cx="40" cy="28" r="14" fill="#c9a84c" opacity="0.6"/>
+                                <path d="M12 72 C12 56 24 44 40 44 C56 44 68 56 68 72" fill="#c9a84c" opacity="0.4"/>
                             </svg>
                         </div>
                     </div>
@@ -139,7 +149,7 @@
                 <div class="section__header">
                     <h2 class="section__title">Кому я допомагаю</h2>
                 </div>
-                <div class="help__grid">
+                <div class="help__grid reveal-group">
                     <div class="help__card">
                         <div class="help__icon">🎯</div>
                         <p>Тим, хто хоче почати інвестувати, але не знає з чого</p>
@@ -166,7 +176,7 @@
                 <div class="section__header">
                     <h2 class="section__title">Що ми зробимо разом</h2>
                 </div>
-                <div class="services__steps">
+                <div class="services__steps reveal-group">
                     <div class="step">
                         <div class="step__number">01</div>
                         <div class="step__body">
@@ -311,7 +321,7 @@
                 <div class="section__header">
                     <h2 class="section__title">Результат нашої роботи</h2>
                 </div>
-                <div class="results__grid">
+                <div class="results__grid reveal-group">
                     <div class="result__card">
                         <div class="result__icon">✔️</div>
                         <p>Відкритий брокерський рахунок</p>

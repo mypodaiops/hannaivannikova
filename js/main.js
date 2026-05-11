@@ -1,6 +1,7 @@
 /* ===========================================
    Ганна Іваннікова — Main Script
    Mobile nav, scroll effects, animations
+   v2.0 — Refined scroll-reveal with stagger
    =========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -69,33 +70,56 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll(); // initial check
 
     /* ---- Scroll Reveal Animations ---- */
+    // Individual reveal elements
     const revealElements = document.querySelectorAll(
         '.section__header, .step, .help__card, .result__card, .meeting, ' +
-        '.about__content > *, .why__content > *, .philosophy__inner > *, ' +
-        '.pricing__card > *'
+        '.about__content > *, .philosophy__inner > *, ' +
+        '.pricing__card > *, .about__emphasis'
     );
 
-    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
+    // Elements inside reveal-groups
+    const revealGroups = document.querySelectorAll('.reveal-group');
+
+    const allReveal = [...revealElements];
+
+    // Configure IntersectionObserver
+    let observer;
+    if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal', 'visible');
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1,
+            threshold: 0.08,
             rootMargin: '0px 0px -40px 0px'
         });
 
-        revealElements.forEach(el => {
+        // Observe individual elements
+        allReveal.forEach(el => {
             el.classList.add('reveal');
             observer.observe(el);
         });
+
+        // Also observe children of reveal-groups for stagger
+        revealGroups.forEach(group => {
+            const children = group.children;
+            for (let i = 0; i < children.length; i++) {
+                const child = children[i];
+                // Only add reveal if not already targeted individually
+                if (!child.classList.contains('reveal')) {
+                    child.classList.add('reveal');
+                    observer.observe(child);
+                }
+            }
+        });
     } else {
         // Fallback: make everything visible immediately
-        revealElements.forEach(el => {
-            el.classList.add('visible');
+        allReveal.forEach(el => el.classList.add('visible'));
+        revealGroups.forEach(group => {
+            [...group.children].forEach(child => child.classList.add('visible'));
         });
     }
 
