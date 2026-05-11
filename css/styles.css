@@ -952,20 +952,6 @@ h1, h2, h3, h4 {
     position: relative;
 }
 
-/* Decorative quotation marks */
-.why__quote::before {
-    content: '"';
-    font-size: 4rem;
-    font-family: var(--font-display);
-    color: var(--color-accent);
-    opacity: 0.2;
-    position: absolute;
-    top: -0.5rem;
-    left: 0.5rem;
-    line-height: 1;
-    pointer-events: none;
-}
-
 /* ===========================================
    PRICING
    =========================================== */
