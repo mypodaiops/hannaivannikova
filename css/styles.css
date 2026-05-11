@@ -784,52 +784,47 @@ h1, h2, h3, h4 {
 .services__steps {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: var(--space-6);
     max-width: 800px;
     margin: 0 auto;
     position: relative;
 }
 
-/* Vertical connector line between steps */
-.services__steps::before {
-    content: '';
-    position: absolute;
-    top: 24px;
-    bottom: 24px;
-    left: 24px;
-    width: 1px;
-    background: linear-gradient(180deg, var(--color-accent), rgba(201, 168, 76, 0.1));
-    z-index: 0;
-}
-
 .step {
     display: flex;
-    gap: var(--space-5);
+    gap: var(--space-4);
     align-items: flex-start;
     position: relative;
+    padding-left: var(--space-4);
+    border-left: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.step:hover {
+    border-left-color: var(--color-accent);
 }
 
 .step__number {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--text-sm);
+    font-size: 0.75rem;
     font-weight: 700;
     color: #fff;
     background: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent));
     border-radius: 50%;
     position: relative;
-    z-index: 1;
-    box-shadow: 0 4px 12px rgba(201, 168, 76, 0.25);
+    margin-top: 2px;
+    box-shadow: 0 3px 8px rgba(201, 168, 76, 0.25);
     transition: transform 0.3s var(--ease-out-back), box-shadow 0.3s;
 }
 
 .step:hover .step__number {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(201, 168, 76, 0.35);
+    box-shadow: 0 5px 16px rgba(201, 168, 76, 0.35);
 }
 
 .step__title {
@@ -1548,13 +1543,8 @@ h1, h2, h3, h4 {
 
     /* Services steps */
     .step__number {
-        width: 56px;
-        height: 56px;
-        font-size: var(--text-base);
-    }
-
-    .services__steps::before {
-        left: 28px;
+        width: 40px;
+        height: 40px;
     }
 
     /* Pricing */
