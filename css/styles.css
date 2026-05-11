@@ -790,18 +790,23 @@ h1, h2, h3, h4 {
     position: relative;
 }
 
+/* Vertical connector line through step numbers */
+.services__steps::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 18px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--color-accent), rgba(201, 168, 76, 0.08));
+    z-index: 0;
+}
+
 .step {
     display: flex;
     gap: var(--space-4);
     align-items: flex-start;
     position: relative;
-    padding-left: var(--space-4);
-    border-left: 2px solid transparent;
-    transition: border-color 0.3s;
-}
-
-.step:hover {
-    border-left-color: var(--color-accent);
 }
 
 .step__number {
@@ -817,7 +822,7 @@ h1, h2, h3, h4 {
     background: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent));
     border-radius: 50%;
     position: relative;
-    margin-top: 2px;
+    z-index: 1;
     box-shadow: 0 3px 8px rgba(201, 168, 76, 0.25);
     transition: transform 0.3s var(--ease-out-back), box-shadow 0.3s;
 }
@@ -1053,7 +1058,7 @@ h1, h2, h3, h4 {
     position: absolute;
     top: 18px;
     bottom: 18px;
-    left: 18px;
+    left: 34px;
     width: 1px;
     background: linear-gradient(180deg, var(--color-primary-light), rgba(30, 58, 95, 0.08));
     z-index: 0;
@@ -1062,7 +1067,7 @@ h1, h2, h3, h4 {
 .meeting {
     display: flex;
     gap: var(--space-4);
-    padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
+    padding: var(--space-4);
     border-radius: var(--radius);
     transition: background 0.3s;
     position: relative;
