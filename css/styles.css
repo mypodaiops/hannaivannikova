@@ -1044,35 +1044,48 @@ h1, h2, h3, h4 {
     flex-direction: column;
     gap: var(--space-6);
     margin-bottom: var(--space-8);
+    position: relative;
+}
+
+/* Vertical connector line through meeting numbers */
+.pricing__meetings::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 18px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--color-primary-light), rgba(30, 58, 95, 0.08));
+    z-index: 0;
 }
 
 .meeting {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-4);
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
     border-radius: var(--radius);
-    border-left: 2px solid transparent;
-    transition: background 0.3s, border-color 0.3s;
+    transition: background 0.3s;
+    position: relative;
 }
 
 .meeting:hover {
     background: var(--color-accent-fade);
-    border-left-color: var(--color-accent);
 }
 
 .meeting__num {
     flex-shrink: 0;
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     color: #fff;
     background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
     border-radius: 50%;
+    position: relative;
+    z-index: 1;
 }
 
 .meeting__title {
