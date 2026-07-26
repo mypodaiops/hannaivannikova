@@ -11,3 +11,6 @@ Thumbs.db
 # Env
 .env
 .env.local
+
+# Dependencies
+node_modules/

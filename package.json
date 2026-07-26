@@ -1,0 +1,12 @@
+{
+  "name": "hannaivannikova-build",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://mypodaiops.github.io/hannaivannikova",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "mustache": "^4.2.0"
+  }
+}

@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{t.page.title}}</title>
+    <meta name="description" content="{{t.page.description}}" />
+    <meta name="keywords" content="{{t.page.keywords}}" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{t.page.title}}" />
+    <meta property="og:description" content="{{t.page.description}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{{base_url}}}/{{lang}}/" />
+    <meta property="og:locale" content="{{og_locale}}" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{base}}/css/styles.css" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="{{base}}/img/favicon.svg" />
+    <link rel="apple-touch-icon" href="{{base}}/img/favicon.svg" />
+  </head>
+  <body>
+    <!-- ===== NAVIGATION ===== -->
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a href="#" class="logo">{{t.site.name}}</a>
+        <button class="nav-toggle" id="navToggle" aria-label="{{t.nav.menu}}">
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+        </button>
+        <nav class="nav" id="nav">
+          <ul class="nav__list">
+            <li>
+              <a href="#about" class="nav__link">{{t.nav.about}}</a>
+            </li>
+            <li>
+              <a href="#services" class="nav__link">{{t.nav.services}}</a>
+            </li>
+            <li>
+              <a href="#pricing" class="nav__link">{{t.nav.format}}</a>
+            </li>
+            <li>
+              <a href="calculator.html" class="nav__link"
+                >{{t.nav.calculator}}</a
+              >
+            </li>
+            <li>
+              <a href="#results" class="nav__link">{{t.nav.results}}</a>
+            </li>
+            <li>
+              <a href="#contact" class="nav__link nav__link--cta"
+                >{{t.nav.book}}</a
+              >
+            </li>
+            <li class="nav__lang">
+              {{#languages}}
+              <a
+                href="{{base}}/{{code}}/{{page}}"
+                class="nav__link{{#active}} nav__link--current{{/active}}"
+                >{{name}}</a
+              >
+              {{/languages}}
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== HERO ===== -->
+      <section class="hero" id="hero">
+        <div class="hero__bg"></div>
+        <div class="container hero__inner">
+          <h1 class="hero__title">
+            <span>{{t.hero.title}}</span><br />
+            <span class="hero__title-accent">{{t.hero.accent}}</span>
+          </h1>
+          <p class="hero__subtitle">{{t.hero.subtitle}}</p>
+          <div class="hero__actions">
+            <a
+              href="https://t.me/hannaivannikova"
+              class="btn btn--primary"
+              target="_blank"
+              rel="noopener"
+              >{{t.hero.cta}}</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section class="section about" id="about">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">{{t.about.title}}</h2>
+          </div>
+          <div class="about__content">
+            <div class="about__photo">
+              <img
+                src="{{base}}/img/prifile.jpeg"
+                alt="{{t.site.name}}"
+                width="200"
+                height="200"
+                loading="lazy"
+              />
+            </div>
+            <div class="about__text">
+              <p class="about__intro">
+                <span>{{t.about.intro}}</span>
+                <strong>{{t.site.name}}</strong>.
+              </p>
+              <p>{{t.about.text}}</p>
+              <p class="about__emphasis">{{t.about.emphasis}}</p>
+            </div>
+            <div class="about__approach">
+              <h3>{{t.about.approach.title}}</h3>
+              <ul class="checklist">
+                <li>{{t.about.approach.1}}</li>
+                <li>{{t.about.approach.2}}</li>
+                <li>{{t.about.approach.3}}</li>
+                <li>{{t.about.approach.4}}</li>
+              </ul>
+            </div>
+            <div class="about__goal">
+              <h3>{{t.about.goal.title}}</h3>
+              <ul class="checklist checklist--check">
+                <li>{{t.about.goal.1}}</li>
+                <li>{{t.about.goal.2}}</li>
+                <li>{{t.about.goal.3}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WHO I HELP ===== -->
+      <section class="section help" id="help">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">{{t.help.title}}</h2>
+          </div>
+          <div class="help__grid reveal-group">
+            <div class="help__card">
+              <div class="help__icon">🎯</div>
+              <p>{{t.help.1}}</p>
+            </div>
+            <div class="help__card">
+              <div class="help__icon">🛌</div>
+              <p>{{t.help.2}}</p>
+            </div>
+            <div class="help__card">
+              <div class="help__icon">💹</div>
+              <p>{{t.help.3}}</p>
+            </div>
+            <div class="help__card">
+              <div class="help__icon">🔓</div>
+              <p>{{t.help.4}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES ===== -->
+      <section class="section services" id="services">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">{{t.services.title}}</h2>
+          </div>
+          <div class="services__steps reveal-group">
+            <div class="step">
+              <div class="step__number">1</div>
+              <div class="step__body">
+                <h3 class="step__title">{{t.services.1.title}}</h3>
+                <p class="step__desc">{{t.services.1.desc}}</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">2</div>
+              <div class="step__body">
+                <h3 class="step__title">{{t.services.2.title}}</h3>
+                <p class="step__desc">{{t.services.2.desc}}</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">3</div>
+              <div class="step__body">
+                <h3 class="step__title">{{t.services.3.title}}</h3>
+                <p class="step__desc">{{t.services.3.desc}}</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">4</div>
+              <div class="step__body">
+                <h3 class="step__title">{{t.services.4.title}}</h3>
+                <p class="step__desc">{{t.services.4.desc}}</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step__number">5</div>
+              <div class="step__body">
+                <h3 class="step__title">{{t.services.5.title}}</h3>
+                <p class="step__desc">{{t.services.5.desc}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WHY IT MATTERS ===== -->
+      <section class="section why" id="why">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">{{t.why.title}}</h2>
+          </div>
+          <div class="why__split">
+            <div class="why__problems">
+              <div class="why__problem">
+                <span class="why__icon">⚠️</span>
+                <span>{{t.why.problem.1}}</span>
+              </div>
+              <div class="why__problem">
+                <span class="why__icon">📉</span>
+                <span>{{t.why.problem.2}}</span>
+              </div>
+              <div class="why__problem">
+                <span class="why__icon">⛓️</span>
+                <span>{{t.why.problem.3}}</span>
+              </div>
+            </div>
+            <div class="why__divider" role="separator" aria-hidden="true"></div>
+            <div class="why__solutions">
+              <h3>{{t.why.solutions.title}}</h3>
+              <ul class="checklist checklist--check">
+                <li>{{t.why.solutions.1}}</li>
+                <li>{{t.why.solutions.2}}</li>
+                <li>{{t.why.solutions.3}}</li>
+              </ul>
+              <blockquote class="why__quote">{{t.why.quote}}</blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PRICING ===== -->
+      <section class="section pricing" id="pricing">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">{{t.pricing.title}}</h2>
+          </div>
+          <div class="pricing__card">
+            <div class="pricing__badge">{{t.pricing.badge}}</div>
+            <h3 class="pricing__title">{{t.pricing.heading}}</h3>
+            <p class="pricing__desc">{{t.pricing.desc}}</p>
+            <div class="pricing__meetings">
+              <div class="meeting">
+                <div class="meeting__num">1</div>
+                <div class="meeting__body">
+                  <h4 class="meeting__title">{{t.pricing.meeting.1.title}}</h4>
+                  <ul class="meeting__list">
+                    <li>{{t.pricing.meeting.1.1}}</li>
+                    <li>{{t.pricing.meeting.1.2}}</li>
+                    <li>{{t.pricing.meeting.1.3}}</li>
+                    <li>{{t.pricing.meeting.1.4}}</li>
+                  </ul>
+                  <p class="meeting__result">{{t.pricing.meeting.1.result}}</p>
+                </div>
+              </div>
+              <div class="meeting">
+                <div class="meeting__num">2</div>
+                <div class="meeting__body">
+                  <h4 class="meeting__title">{{t.pricing.meeting.2.title}}</h4>
+                  <ul class="meeting__list">
+                    <li>{{t.pricing.meeting.2.1}}</li>
+                    <li>{{t.pricing.meeting.2.2}}</li>
+                    <li>{{t.pricing.meeting.2.3}}</li>
+                  </ul>
+                  <p class="meeting__result">{{t.pricing.meeting.2.result}}</p>
+                </div>
+              </div>
+              <div class="meeting">
+                <div class="meeting__num">3</div>
+                <div class="meeting__body">
+                  <h4 class="meeting__title">{{t.pricing.meeting.3.title}}</h4>
+                  <ul class="meeting__list">
+                    <li>{{t.pricing.meeting.3.1}}</li>
+                    <li>{{t.pricing.meeting.3.2}}</li>
+                    <li>{{t.pricing.meeting.3.3}}</li>
+                  </ul>
+                  <p class="meeting__result">{{t.pricing.meeting.3.result}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="pricing__support">
+              <span class="pricing__support-icon">💬</span>
+              <p>{{t.pricing.support}}</p>
+            </div>
+            <p class="pricing__tagline">{{t.pricing.tagline}}</p>
+            <a
+              href="https://t.me/hannaivannikova"
+              class="btn btn--primary"
+              target="_blank"
+              rel="noopener"
+              >{{t.pricing.cta}}</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== RESULTS ===== -->
+      <section class="section results" id="results">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">{{t.results.title}}</h2>
+          </div>
+          <div class="results__grid reveal-group">
+            <div class="result__card">
+              <div class="result__icon">✔️</div>
+              <p>{{t.results.1}}</p>
+            </div>
+            <div class="result__card">
+              <div class="result__icon">✔️</div>
+              <p>{{t.results.2}}</p>
+            </div>
+            <div class="result__card">
+              <div class="result__icon">✔️</div>
+              <p>{{t.results.3}}</p>
+            </div>
+            <div class="result__card">
+              <div class="result__icon">✔️</div>
+              <p>{{t.results.4}}</p>
+            </div>
+            <div class="result__card">
+              <div class="result__icon">✔️</div>
+              <p>{{t.results.5}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FINAL CTA ===== -->
+      <section class="section cta" id="contact">
+        <div class="container">
+          <h2 class="cta__title">{{t.cta.title}}</h2>
+          <div class="cta__actions">
+            <a
+              href="https://t.me/hannaivannikova"
+              class="btn btn--primary"
+              target="_blank"
+              rel="noopener"
+              >{{t.cta.cta}}</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PHILOSOPHY ===== -->
+      <section class="section philosophy" id="philosophy">
+        <div class="container philosophy__inner">
+          <h2 class="philosophy__title">{{t.philosophy.title}}</h2>
+          <p class="philosophy__lead">{{t.philosophy.lead}}</p>
+          <ul class="philosophy__list">
+            <li>{{t.philosophy.1}}</li>
+            <li>{{t.philosophy.2}}</li>
+            <li>{{t.philosophy.3}}</li>
+            <li>{{t.philosophy.4}}</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="footer__name">{{t.site.name}}</span>
+          <span class="footer__tagline">{{t.footer.tagline}}</span>
+        </div>
+        <div class="footer__links">
+          <a
+            href="https://t.me/hannaivannikova"
+            target="_blank"
+            rel="noopener"
+            class="footer__social"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+              <path d="M12 13l4-4" />
+            </svg>
+            Telegram
+          </a>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p>{{t.footer.copy}}</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="{{base}}/js/main.js"></script>
+  </body>
+</html>
