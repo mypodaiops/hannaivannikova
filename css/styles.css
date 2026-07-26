@@ -452,8 +452,8 @@ h4 {
 }
 
 .about__photo img {
-	width: 160px;
-	height: 160px;
+	width: 180px;
+	height: 180px;
 	border-radius: 50%;
 	object-fit: cover;
 	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
@@ -1490,8 +1490,8 @@ h4 {
 		justify-self: center;
 	}
 	.about__photo img {
-		width: 200px;
-		height: 200px;
+		width: 220px;
+		height: 220px;
 	}
 
 	.about__text {
