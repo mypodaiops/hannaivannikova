@@ -761,26 +761,6 @@ h4 {
 	font-weight: 700;
 }
 
-.pricing__amount {
-	font-size: var(--text-5xl);
-	font-weight: 800;
-	color: var(--color-primary);
-	letter-spacing: -0.03em;
-	margin-bottom: var(--space-2);
-	display: inline-block;
-	position: relative;
-}
-
-.pricing__amount::after {
-	content: "€";
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: var(--color-accent);
-	position: absolute;
-	top: 0.25em;
-	margin-left: 2px;
-}
-
 .pricing__desc {
 	color: var(--color-text-light);
 	font-size: var(--text-lg);
@@ -1218,9 +1198,6 @@ h4 {
 	.pricing__card {
 		padding: var(--space-10) var(--space-8);
 	}
-	.pricing__amount {
-		font-size: 3.5rem;
-	}
 
 	/* Results grid */
 	.results__grid {
@@ -1304,8 +1281,8 @@ h4 {
 
 	.about__content {
 		display: grid;
-		grid-template-columns: 1.2fr 0.8fr;
-		grid-template-rows: auto auto auto;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto;
 		gap: var(--space-6) var(--space-10);
 		max-width: 860px;
 	}
@@ -1313,8 +1290,7 @@ h4 {
 	.about__photo {
 		grid-column: 2 / 3;
 		grid-row: 1 / 2;
-		align-self: start;
-		margin-top: 0;
+		justify-self: center;
 	}
 	.about__photo img,
 	.about__photo-placeholder {
@@ -1324,15 +1300,15 @@ h4 {
 
 	.about__text {
 		grid-column: 1 / 2;
-		grid-row: 1 / 3;
+		grid-row: 1 / 2;
 	}
 	.about__approach {
-		grid-column: 2 / 3;
+		grid-column: 1 / 2;
 		grid-row: 2 / 3;
 	}
 	.about__goal {
 		grid-column: 2 / 3;
-		grid-row: 3 / 4;
+		grid-row: 2 / 3;
 	}
 }
 
