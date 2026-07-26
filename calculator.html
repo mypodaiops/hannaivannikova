@@ -3,6 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html.is-translating body {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const lang = params.get("lang");
+        if (lang === "en" || lang === "uk") {
+          document.documentElement.lang = lang;
+        }
+        if (lang === "en" || localStorage.getItem("hanna-lang") === "en") {
+          document.documentElement.classList.add("is-translating");
+        }
+        setTimeout(() => {
+          document.documentElement.classList.remove("is-translating");
+        }, 2000);
+      })();
+    </script>
     <title>Калькулятор складних відсотків — Ганна Іваннікова</title>
     <meta
       name="description"
@@ -16,7 +36,7 @@
     />
     <meta
       property="og:description"
-      content="Порахуйте, скільки ви зможете заробити на системних інвестиціях."
+      content="Онлайн-калькулятор складних відсотків. Порахуйте, скільки ви зможете заробити на системних інвестиціях."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -45,24 +65,66 @@
     <header class="header" id="header">
       <div class="container header__inner">
         <a href="index.html" class="logo">Ганна Іваннікова</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Відкрити меню">
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Відкрити меню"
+          data-i18n-attr="nav.menu|aria-label"
+        >
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
         </button>
         <nav class="nav" id="nav">
           <ul class="nav__list">
-            <li><a href="index.html#about" class="nav__link">Про мене</a></li>
-            <li><a href="index.html#services" class="nav__link">Послуги</a></li>
-            <li><a href="index.html#pricing" class="nav__link">Формат</a></li>
-            <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
             <li>
-              <a href="index.html#results" class="nav__link">Результат</a>
+              <a href="index.html#about" class="nav__link" data-i18n="nav.about"
+                >Про мене</a
+              >
             </li>
             <li>
-              <a href="index.html#contact" class="nav__link nav__link--cta"
+              <a
+                href="index.html#services"
+                class="nav__link"
+                data-i18n="nav.services"
+                >Послуги</a
+              >
+            </li>
+            <li>
+              <a
+                href="calculator.html"
+                class="nav__link"
+                data-i18n="nav.calculator"
+                >Калькулятор</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#pricing"
+                class="nav__link"
+                data-i18n="nav.format"
+                >Формат</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#results"
+                class="nav__link"
+                data-i18n="nav.results"
+                >Результат</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#contact"
+                class="nav__link nav__link--cta"
+                data-i18n="nav.book"
                 >Записатись</a
               >
+            </li>
+            <li class="nav__lang">
+              <a href="?lang=uk" class="nav__link" data-lang="uk">UA</a>
+              <a href="?lang=en" class="nav__link" data-lang="en">EN</a>
             </li>
           </ul>
         </nav>
@@ -74,8 +136,10 @@
       <section class="hero hero--compact">
         <div class="hero__bg"></div>
         <div class="container hero__inner">
-          <h1 class="hero__title">Калькулятор складних відсотків</h1>
-          <p class="hero__subtitle">
+          <h1 class="hero__title" data-i18n="calc.hero.title">
+            Калькулятор складних відсотків
+          </h1>
+          <p class="hero__subtitle" data-i18n="calc.hero.subtitle">
             Порахуйте, скільки ви зможете заробити на системних інвестиціях
           </p>
         </div>
@@ -87,7 +151,9 @@
           <div class="calculator__grid">
             <div class="calculator__card calculator__form">
               <div class="calculator__field">
-                <label for="calc-amount">Початкова сума</label>
+                <label for="calc-amount" data-i18n="calc.amount"
+                  >Початкова сума</label
+                >
                 <input
                   type="number"
                   id="calc-amount"
@@ -97,7 +163,9 @@
                 />
               </div>
               <div class="calculator__field">
-                <label for="calc-rate">Ставка, % річних</label>
+                <label for="calc-rate" data-i18n="calc.rate"
+                  >Ставка, % річних</label
+                >
                 <input
                   type="number"
                   id="calc-rate"
@@ -107,7 +175,7 @@
                 />
               </div>
               <div class="calculator__field">
-                <label for="calc-term">Строк</label>
+                <label for="calc-term" data-i18n="calc.term">Строк</label>
                 <div class="calculator__term">
                   <input
                     type="number"
@@ -117,13 +185,19 @@
                     step="1"
                   />
                   <select id="calc-term-type" class="calculator__select">
-                    <option value="months">місяців</option>
-                    <option value="years" selected>років</option>
+                    <option value="months" data-i18n="calc.term.months">
+                      місяців
+                    </option>
+                    <option value="years" data-i18n="calc.term.years" selected>
+                      років
+                    </option>
                   </select>
                 </div>
               </div>
               <div class="calculator__field">
-                <label for="calc-contribution">Щомісячне поповнення</label>
+                <label for="calc-contribution" data-i18n="calc.contribution"
+                  >Щомісячне поповнення</label
+                >
                 <input
                   type="number"
                   id="calc-contribution"
@@ -135,15 +209,21 @@
             </div>
             <div class="calculator__card calculator__results">
               <div class="calculator__result">
-                <span class="calculator__label">Підсумкова сума</span>
+                <span class="calculator__label" data-i18n="calc.final"
+                  >Підсумкова сума</span
+                >
                 <strong class="calculator__value" id="calc-final">0,00</strong>
               </div>
               <div class="calculator__result">
-                <span class="calculator__label">Заробіток</span>
+                <span class="calculator__label" data-i18n="calc.profit"
+                  >Заробіток</span
+                >
                 <strong class="calculator__value" id="calc-profit">0,00</strong>
               </div>
               <div class="calculator__result">
-                <span class="calculator__label">Всього поповнень</span>
+                <span class="calculator__label" data-i18n="calc.contributions"
+                  >Всього поповнень</span
+                >
                 <strong class="calculator__value" id="calc-contributions"
                   >0,00</strong
                 >
@@ -151,7 +231,11 @@
             </div>
           </div>
           <div class="calculator__cta">
-            <a href="index.html#contact" class="btn btn--primary">
+            <a
+              href="index.html#contact"
+              class="btn btn--primary"
+              data-i18n="calc.cta"
+            >
               Хочу такий результат
             </a>
           </div>
@@ -161,6 +245,7 @@
             type="button"
             aria-expanded="false"
             aria-controls="calc-table-wrapper"
+            data-i18n="calc.toggle"
           >
             Детальний розрахунок
             <svg
@@ -182,10 +267,10 @@
             <table class="calculator__table">
               <thead>
                 <tr>
-                  <th>Місяць</th>
-                  <th>Вклад</th>
-                  <th>Дохід</th>
-                  <th>Разом</th>
+                  <th data-i18n="calc.table.month">Місяць</th>
+                  <th data-i18n="calc.table.contribution">Вклад</th>
+                  <th data-i18n="calc.table.return">Дохід</th>
+                  <th data-i18n="calc.table.total">Разом</th>
                 </tr>
               </thead>
               <tbody id="calc-table-body"></tbody>
@@ -200,7 +285,7 @@
       <div class="container footer__inner">
         <div class="footer__brand">
           <span class="footer__name">Ганна Іваннікова</span>
-          <span class="footer__tagline"
+          <span class="footer__tagline" data-i18n="footer.tagline"
             >Фінансова незалежність через системне інвестування</span
           >
         </div>
@@ -229,11 +314,15 @@
         </div>
       </div>
       <div class="container footer__bottom">
-        <p>&copy; 2026 Ганна Іваннікова. Усі права захищені.</p>
+        <p data-i18n="footer.copy">
+          &copy; 2026 Ганна Іваннікова. Усі права захищені.
+        </p>
       </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

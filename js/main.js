@@ -103,15 +103,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		const tableWrapper = document.getElementById("calc-table-wrapper");
 		const tableBody = document.getElementById("calc-table-body");
 
+		const locale = document.documentElement.lang || "uk";
+
 		function formatMoney(value) {
-			return value.toLocaleString("uk-UA", {
+			return value.toLocaleString(locale, {
 				minimumFractionDigits: 2,
 				maximumFractionDigits: 2,
 			});
 		}
 
 		function formatTableMoney(value) {
-			return Math.round(value).toLocaleString("uk-UA");
+			return Math.round(value).toLocaleString(locale);
 		}
 
 		function calculate() {

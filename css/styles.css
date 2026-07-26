@@ -284,6 +284,25 @@ h4 {
 	background: var(--color-accent-light);
 }
 
+.nav__lang {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	padding: var(--space-3) var(--space-4);
+	font-size: var(--text-sm);
+	font-weight: 600;
+}
+
+.nav__lang .nav__link {
+	padding: 0;
+	font-size: inherit;
+}
+
+.nav__lang .nav__link--current {
+	color: var(--color-accent-dark);
+	cursor: default;
+}
+
 /* Nav overlay */
 .nav-overlay {
 	position: fixed;
@@ -1340,6 +1359,10 @@ h4 {
 	.nav__link {
 		padding: var(--space-2) var(--space-3);
 		font-size: var(--text-sm);
+	}
+
+	.nav__lang {
+		padding: 0 var(--space-3);
 	}
 
 	.nav__link--cta {
