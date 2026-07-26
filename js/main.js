@@ -110,6 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		}
 
+		function formatTableMoney(value) {
+			return Math.round(value).toLocaleString("uk-UA");
+		}
+
 		function calculate() {
 			const amount = Number(amountInput.value) || 0;
 			const rate = Number(rateInput.value) || 0;
@@ -151,9 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				const tr = document.createElement("tr");
 				[
 					row.month,
-					formatMoney(row.principal),
-					formatMoney(row.interest),
-					formatMoney(row.balance),
+					formatTableMoney(row.principal),
+					formatTableMoney(row.interest),
+					formatTableMoney(row.balance),
 				].forEach((text) => {
 					const td = document.createElement("td");
 					td.textContent = text;
