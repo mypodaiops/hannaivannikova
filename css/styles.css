@@ -588,6 +588,21 @@ h4 {
 	gap: var(--space-6);
 	max-width: 800px;
 	margin: 0 auto;
+	position: relative;
+}
+
+.services__steps::before {
+	content: "";
+	position: absolute;
+	top: 18px;
+	bottom: 18px;
+	left: 18px;
+	width: 1px;
+	background: linear-gradient(
+		180deg,
+		var(--color-accent),
+		rgba(201, 168, 76, 0.08)
+	);
 }
 
 .step {
@@ -609,6 +624,8 @@ h4 {
 	color: #fff;
 	background: var(--color-accent);
 	border-radius: 50%;
+	position: relative;
+	z-index: 1;
 }
 
 .step__title {
@@ -777,6 +794,21 @@ h4 {
 	flex-direction: column;
 	gap: var(--space-6);
 	margin-bottom: var(--space-8);
+	position: relative;
+}
+
+.pricing__meetings::before {
+	content: "";
+	position: absolute;
+	top: 18px;
+	bottom: 18px;
+	left: 34px;
+	width: 1px;
+	background: linear-gradient(
+		180deg,
+		var(--color-primary-light),
+		rgba(30, 58, 95, 0.08)
+	);
 }
 
 .meeting {
@@ -798,6 +830,8 @@ h4 {
 	color: #fff;
 	background: var(--color-primary);
 	border-radius: 50%;
+	position: relative;
+	z-index: 1;
 }
 
 .meeting__title {
