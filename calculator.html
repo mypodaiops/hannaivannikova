@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор складних відсотків — Ганна Іваннікова</title>
+    <meta
+      name="description"
+      content="Онлайн-калькулятор складних відсотків. Порахуйте, скільки ви зможете заробити на системних інвестиціях."
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Калькулятор складних відсотків — Ганна Іваннікова"
+    />
+    <meta
+      property="og:description"
+      content="Порахуйте, скільки ви зможете заробити на системних інвестиціях."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mypodaiops.github.io/hannaivannikova/calculator.html"
+    />
+    <meta property="og:locale" content="uk_UA" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="apple-touch-icon" href="img/favicon.svg" />
+  </head>
+  <body>
+    <!-- ===== NAVIGATION ===== -->
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a href="index.html" class="logo">Ганна Іваннікова</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Відкрити меню">
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+        </button>
+        <nav class="nav" id="nav">
+          <ul class="nav__list">
+            <li><a href="index.html#about" class="nav__link">Про мене</a></li>
+            <li><a href="index.html#services" class="nav__link">Послуги</a></li>
+            <li><a href="index.html#pricing" class="nav__link">Формат</a></li>
+            <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
+            <li>
+              <a href="index.html#results" class="nav__link">Результат</a>
+            </li>
+            <li>
+              <a href="index.html#contact" class="nav__link nav__link--cta"
+                >Записатись</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== CALCULATOR HERO ===== -->
+      <section class="hero hero--compact">
+        <div class="hero__bg"></div>
+        <div class="container hero__inner">
+          <h1 class="hero__title">Калькулятор складних відсотків</h1>
+          <p class="hero__subtitle">
+            Порахуйте, скільки ви зможете заробити на системних інвестиціях
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== CALCULATOR ===== -->
+      <section class="section calculator" id="calculator">
+        <div class="container">
+          <div class="calculator__grid">
+            <div class="calculator__card calculator__form">
+              <div class="calculator__field">
+                <label for="calc-amount">Початкова сума</label>
+                <input
+                  type="number"
+                  id="calc-amount"
+                  value="10000"
+                  min="0"
+                  step="100"
+                />
+              </div>
+              <div class="calculator__field">
+                <label for="calc-rate">Ставка, % річних</label>
+                <input
+                  type="number"
+                  id="calc-rate"
+                  value="15"
+                  min="0"
+                  step="0.1"
+                />
+              </div>
+              <div class="calculator__field">
+                <label for="calc-term">Строк</label>
+                <div class="calculator__term">
+                  <input
+                    type="number"
+                    id="calc-term"
+                    value="1"
+                    min="1"
+                    step="1"
+                  />
+                  <select id="calc-term-type" class="calculator__select">
+                    <option value="months" selected>місяців</option>
+                    <option value="years">років</option>
+                  </select>
+                </div>
+              </div>
+              <div class="calculator__field">
+                <label for="calc-contribution">Щомісячне поповнення</label>
+                <input
+                  type="number"
+                  id="calc-contribution"
+                  value="0"
+                  min="0"
+                  step="100"
+                />
+              </div>
+            </div>
+            <div class="calculator__card calculator__results">
+              <div class="calculator__result">
+                <span class="calculator__label">Підсумкова сума</span>
+                <strong class="calculator__value" id="calc-final">0,00</strong>
+              </div>
+              <div class="calculator__result">
+                <span class="calculator__label">Заробіток</span>
+                <strong class="calculator__value" id="calc-profit">0,00</strong>
+              </div>
+              <div class="calculator__result">
+                <span class="calculator__label">Всього поповнень</span>
+                <strong class="calculator__value" id="calc-contributions"
+                  >0,00</strong
+                >
+              </div>
+            </div>
+          </div>
+          <div class="calculator__cta">
+            <a href="index.html#contact" class="btn btn--primary">
+              Хочу такий результат
+            </a>
+          </div>
+          <button
+            class="calculator__toggle"
+            id="calc-table-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="calc-table-wrapper"
+          >
+            Детальний розрахунок
+            <svg
+              class="calculator__toggle-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="calculator__table-wrapper" id="calc-table-wrapper" hidden>
+            <table class="calculator__table">
+              <thead>
+                <tr>
+                  <th>Місяць</th>
+                  <th>Тіло вкладу</th>
+                  <th>Дохід</th>
+                  <th>Разом</th>
+                </tr>
+              </thead>
+              <tbody id="calc-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="footer__name">Ганна Іваннікова</span>
+          <span class="footer__tagline"
+            >Фінансова незалежність через системне інвестування</span
+          >
+        </div>
+        <div class="footer__links">
+          <a
+            href="https://t.me/hannaivannikova"
+            target="_blank"
+            rel="noopener"
+            class="footer__social"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+              <path d="M12 13l4-4" />
+            </svg>
+            Telegram
+          </a>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p>&copy; 2026 Ганна Іваннікова. Усі права захищені.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
