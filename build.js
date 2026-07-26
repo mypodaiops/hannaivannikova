@@ -3,7 +3,7 @@ const path = require("path");
 const mustache = require("mustache");
 
 const pkg = require("./package.json");
-const BASE_URL = process.env.BASE_URL || pkg.homepage;
+const BASE_URL = pkg.homepage;
 
 // Add a new language by adding an entry here and adding its translations to
 // translations.json. If the default language changes, update the root redirect
@@ -21,17 +21,14 @@ const OUT = ROOT;
 /**
  * Turn a flat translation object like { "nav.about": "..." }
  * into a nested object like { nav: { about: "..." } }.
- * Uses Object.create(null) and skips dangerous keys to avoid prototype pollution.
  */
 function nestTranslations(flat) {
 	const nested = Object.create(null);
-	const dangerous = new Set(["__proto__", "constructor", "prototype"]);
 	for (const [key, value] of Object.entries(flat)) {
 		const parts = key.split(".");
 		let current = nested;
 		for (let i = 0; i < parts.length - 1; i++) {
 			const part = parts[i];
-			if (dangerous.has(part)) break;
 			if (
 				!Object.hasOwn(current, part) ||
 				typeof current[part] !== "object" ||
@@ -41,23 +38,15 @@ function nestTranslations(flat) {
 			}
 			current = current[part];
 		}
-		const last = parts.at(-1);
-		if (!dangerous.has(last)) {
-			current[last] = value;
-		}
+		current[parts.at(-1)] = value;
 	}
 	return nested;
 }
 
 function loadTranslations() {
-	try {
-		return JSON.parse(
-			fs.readFileSync(path.join(ROOT, "translations.json"), "utf-8"),
-		);
-	} catch (err) {
-		console.error("Error: failed to load translations.json", err.message);
-		process.exit(1);
-	}
+	return JSON.parse(
+		fs.readFileSync(path.join(ROOT, "translations.json"), "utf-8"),
+	);
 }
 
 function renderPage(templatePath, lang, page, translations) {
@@ -93,9 +82,7 @@ function build() {
 		.readdirSync(TEMPLATES)
 		.filter((f) => f.endsWith(".html"))
 		.sort();
-	const langCodes = LANGUAGES.map((l) => l.code);
-
-	for (const lang of langCodes) {
+	for (const lang of LANGUAGES.map((l) => l.code)) {
 		if (!translations[lang]) {
 			throw new Error(`missing translations for language "${lang}"`);
 		}

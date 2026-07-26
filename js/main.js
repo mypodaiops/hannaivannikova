@@ -35,31 +35,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	/* ---- Scroll-driven updates ---- */
-	const revealSelectors = [
-		".hero__title",
-		".hero__subtitle",
-		".hero__actions",
-		".section__header",
-		".step",
-		".help__card",
-		".result__card",
-		".meeting",
-		".about__content > *",
-		".philosophy__inner > *",
-		".pricing__card > *",
-		".about__emphasis",
-		".reveal-group > *",
-		".calculator__card",
-	];
-	const revealElements = [
-		...new Set(
-			revealSelectors.flatMap((sel) => [...document.querySelectorAll(sel)]),
-		),
-	];
+	const revealElements = document.querySelectorAll(
+		[
+			".hero__title",
+			".hero__subtitle",
+			".hero__actions",
+			".section__header",
+			".step",
+			".meeting",
+			".about__content > *",
+			".philosophy__inner > *",
+			".pricing__card > *",
+			".about__emphasis",
+			".reveal-group > *",
+			".calculator__card",
+		].join(","),
+	);
 
-	revealElements.forEach((el) => {
-		el.classList.add("reveal");
-	});
+	revealElements.forEach((el) => el.classList.add("reveal"));
 
 	const observer = new IntersectionObserver(
 		(entries) => {
@@ -75,18 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	revealElements.forEach((el) => observer.observe(el));
 
-	let ticking = false;
-	function onScroll() {
-		if (!ticking) {
-			requestAnimationFrame(() => {
-				header.classList.toggle("scrolled", window.scrollY > 50);
-				ticking = false;
-			});
-			ticking = true;
-		}
-	}
-
-	window.addEventListener("scroll", onScroll, { passive: true });
+	window.addEventListener(
+		"scroll",
+		() => {
+			header.classList.toggle("scrolled", window.scrollY > 50);
+		},
+		{ passive: true },
+	);
 	header.classList.toggle("scrolled", window.scrollY > 50);
 
 	/* ---- Compound Interest Calculator ---- */
