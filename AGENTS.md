@@ -84,8 +84,10 @@ Live URL: `https://mypodaiops.github.io/hannaivannikova/`
 ## Design & content decisions
 
 - Color scheme: Navy + Gold (`#162033`, `#d4af37`).
-- Single CTA per group: gold `.btn--primary` with Telegram link.
-- All `iplan.ua` references removed; all booking CTAs point to
+- One primary CTA per section. Hero and final contact CTAs link to Telegram;
+  pricing and calculator CTAs lead to the current language's homepage contact
+  section.
+- All `iplan.ua` references removed; outbound Telegram links use
   `https://t.me/hannaivannikova`.
 - 250€ price removed from all pages and content.
 - Vertical connector lines were intentionally re-added for the services and
@@ -109,3 +111,17 @@ Then open `http://0.0.0.0:8765/`.
   `npm run build`.
 - Putting currency symbols back into the calculator.
 - Re-adding the 250€ price or `iplan` references.
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked in GitHub Issues. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the five default triage labels. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Use a single-context layout. See `docs/agents/domain.md`.
