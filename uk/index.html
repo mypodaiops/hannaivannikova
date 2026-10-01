@@ -35,7 +35,7 @@
     <header class="header" id="header">
       <div class="container header__inner">
         <a href="#" class="logo">Ганна Іваннікова</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Відкрити меню">
+        <button class="nav-toggle" id="navToggle" aria-label="Відкрити меню" aria-controls="nav" aria-expanded="false">
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
@@ -84,21 +84,52 @@
     <main>
       <!-- ===== HERO ===== -->
       <section class="hero" id="hero">
-        <div class="hero__bg"></div>
         <div class="container hero__inner">
-          <h1 class="hero__title">
-            <span>Фінансова незалежність —</span><br />
-            <span class="hero__title-accent">це не мрія. Це стратегія.</span>
-          </h1>
-          <p class="hero__subtitle">Я допомагаю системно інвестувати, створювати капітал і забезпечувати себе на пенсії — незалежно від країни проживання.</p>
-          <div class="hero__actions">
-            <a
-              href="https://t.me/hannaivannikova"
-              class="btn btn--primary"
-              target="_blank"
-              rel="noopener"
-              >Написати в Telegram</a
-            >
+          <div class="hero__copy">
+            <p class="eyebrow">Індивідуальні заняття з інвестування</p>
+            <h1 class="hero__title">
+              <span>Фінансова незалежність.</span>
+              <span class="hero__title-accent">
+                <span>Це не мрія.</span>
+                <span>Це стратегія.</span>
+              </span>
+            </h1>
+            <p class="hero__subtitle">Я допомагаю системно інвестувати, створювати капітал і забезпечувати себе на пенсії — незалежно від країни проживання.</p>
+            <div class="hero__actions">
+              <a
+                href="https://t.me/hannaivannikova"
+                class="btn btn--primary"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+                  <path d="M12 13l4-4" />
+                </svg>
+                Написати в Telegram
+              </a>
+            </div>
+          </div>
+          <div class="hero__portrait">
+            <img
+              src="../img/profile.jpeg"
+              alt="Ганна Іваннікова"
+              width="640"
+              height="640"
+              fetchpriority="high"
+            />
+            <span class="hero__portrait-caption">Ганна Іваннікова</span>
           </div>
         </div>
       </section>
@@ -110,15 +141,6 @@
             <h2 class="section__title">Про мене</h2>
           </div>
           <div class="about__content">
-            <div class="about__photo">
-              <img
-                src="../img/prifile.jpeg"
-                alt="Ганна Іваннікова"
-                width="220"
-                height="220"
-                loading="lazy"
-              />
-            </div>
             <div class="about__text">
               <p class="about__intro">
                 <span>Мене звати</span>
@@ -132,7 +154,7 @@
               <ul class="checklist">
                 <li>Стратегія замість хаосу</li>
                 <li>Довгострокове мислення</li>
-                <li>ETF та диверсифікація</li>
+                <li>Диверсифікований портфель</li>
                 <li>Дисципліна замість емоцій</li>
               </ul>
             </div>
@@ -161,7 +183,7 @@
             </div>
             <div class="help__card">
               <div class="help__icon">🛌</div>
-              <p>Тим, хто тримає гроші «під матрасом»</p>
+              <p>Тим, хто тримає гроші «під матрацом»</p>
             </div>
             <div class="help__card">
               <div class="help__icon">💹</div>
@@ -263,9 +285,7 @@
             <h2 class="section__title">Формат роботи</h2>
           </div>
           <div class="pricing__card">
-            <div class="pricing__badge">🚀</div>
             <h3 class="pricing__title">Повний запуск вашої інвестиційної системи</h3>
-            <p class="pricing__desc">Ми працюємо разом у форматі 3 онлайн-зустрічей + підтримка в чаті.</p>
             <div class="pricing__meetings">
               <div class="meeting">
                 <div class="meeting__num">1</div>
@@ -310,11 +330,7 @@
               <p>Підтримка протягом всієї роботи — ви можете писати мені будь-які запитання в чаті.</p>
             </div>
             <p class="pricing__tagline">Це не просто три зустрічі. Це запуск системи, яка може забезпечувати вас десятки років.</p>
-            <a
-              href="https://t.me/hannaivannikova"
-              class="btn btn--primary"
-              target="_blank"
-              rel="noopener"
+            <a href="index.html#contact" class="btn btn--primary"
               >Записатися на консультацію</a
             >
           </div>
@@ -362,8 +378,24 @@
               class="btn btn--primary"
               target="_blank"
               rel="noopener"
-              >Написати в Telegram</a
             >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+                <path d="M12 13l4-4" />
+              </svg>
+              Написати в Telegram
+            </a>
           </div>
         </div>
       </section>

@@ -35,7 +35,7 @@
     <header class="header" id="header">
       <div class="container header__inner">
         <a href="#" class="logo">Hanna Ivannikova</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
@@ -84,21 +84,52 @@
     <main>
       <!-- ===== HERO ===== -->
       <section class="hero" id="hero">
-        <div class="hero__bg"></div>
         <div class="container hero__inner">
-          <h1 class="hero__title">
-            <span>Financial independence —</span><br />
-            <span class="hero__title-accent">it&#39;s not a dream. It&#39;s a strategy.</span>
-          </h1>
-          <p class="hero__subtitle">I help people invest systematically, build capital, and secure their retirement — regardless of where they live.</p>
-          <div class="hero__actions">
-            <a
-              href="https://t.me/hannaivannikova"
-              class="btn btn--primary"
-              target="_blank"
-              rel="noopener"
-              >Message on Telegram</a
-            >
+          <div class="hero__copy">
+            <p class="eyebrow">One-to-one investing lessons</p>
+            <h1 class="hero__title">
+              <span>Financial independence.</span>
+              <span class="hero__title-accent">
+                <span>It&#39;s not a dream.</span>
+                <span>It&#39;s a strategy.</span>
+              </span>
+            </h1>
+            <p class="hero__subtitle">I help people invest systematically, build capital, and secure their retirement — regardless of where they live.</p>
+            <div class="hero__actions">
+              <a
+                href="https://t.me/hannaivannikova"
+                class="btn btn--primary"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+                  <path d="M12 13l4-4" />
+                </svg>
+                Message on Telegram
+              </a>
+            </div>
+          </div>
+          <div class="hero__portrait">
+            <img
+              src="../img/profile.jpeg"
+              alt="Hanna Ivannikova"
+              width="640"
+              height="640"
+              fetchpriority="high"
+            />
+            <span class="hero__portrait-caption">Hanna Ivannikova</span>
           </div>
         </div>
       </section>
@@ -110,15 +141,6 @@
             <h2 class="section__title">About me</h2>
           </div>
           <div class="about__content">
-            <div class="about__photo">
-              <img
-                src="../img/prifile.jpeg"
-                alt="Hanna Ivannikova"
-                width="220"
-                height="220"
-                loading="lazy"
-              />
-            </div>
             <div class="about__text">
               <p class="about__intro">
                 <span>My name is</span>
@@ -263,9 +285,7 @@
             <h2 class="section__title">How it works</h2>
           </div>
           <div class="pricing__card">
-            <div class="pricing__badge">🚀</div>
             <h3 class="pricing__title">Full launch of your investment system</h3>
-            <p class="pricing__desc">We work together through 3 online meetings + chat support.</p>
             <div class="pricing__meetings">
               <div class="meeting">
                 <div class="meeting__num">1</div>
@@ -310,11 +330,7 @@
               <p>Support throughout the entire process — you can ask me any questions in chat.</p>
             </div>
             <p class="pricing__tagline">This isn&#39;t just three meetings. It&#39;s launching a system that can support you for decades.</p>
-            <a
-              href="https://t.me/hannaivannikova"
-              class="btn btn--primary"
-              target="_blank"
-              rel="noopener"
+            <a href="index.html#contact" class="btn btn--primary"
               >Book a consultation</a
             >
           </div>
@@ -362,8 +378,24 @@
               class="btn btn--primary"
               target="_blank"
               rel="noopener"
-              >Message on Telegram</a
             >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+                <path d="M12 13l4-4" />
+              </svg>
+              Message on Telegram
+            </a>
           </div>
         </div>
       </section>

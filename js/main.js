@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		function toggleNav(open) {
 			nav.classList.toggle("open", open);
 			navToggle.classList.toggle("active", open);
+			navToggle.setAttribute("aria-expanded", String(open));
 			overlay.classList.toggle("active", open);
 			document.body.style.overflow = open ? "hidden" : "";
 		}
@@ -30,7 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			link.addEventListener("click", () => toggleNav(false)),
 		);
 		document.addEventListener("keydown", (e) => {
-			if (e.key === "Escape") toggleNav(false);
+			if (e.key === "Escape" && nav.classList.contains("open")) {
+				toggleNav(false);
+				navToggle.focus();
+			}
 		});
 	}
 

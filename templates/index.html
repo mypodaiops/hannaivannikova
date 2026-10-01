@@ -35,7 +35,7 @@
     <header class="header" id="header">
       <div class="container header__inner">
         <a href="#" class="logo">{{t.site.name}}</a>
-        <button class="nav-toggle" id="navToggle" aria-label="{{t.nav.menu}}">
+        <button class="nav-toggle" id="navToggle" aria-label="{{t.nav.menu}}" aria-controls="nav" aria-expanded="false">
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
@@ -81,21 +81,52 @@
     <main>
       <!-- ===== HERO ===== -->
       <section class="hero" id="hero">
-        <div class="hero__bg"></div>
         <div class="container hero__inner">
-          <h1 class="hero__title">
-            <span>{{t.hero.title}}</span><br />
-            <span class="hero__title-accent">{{t.hero.accent}}</span>
-          </h1>
-          <p class="hero__subtitle">{{t.hero.subtitle}}</p>
-          <div class="hero__actions">
-            <a
-              href="https://t.me/hannaivannikova"
-              class="btn btn--primary"
-              target="_blank"
-              rel="noopener"
-              >{{t.hero.cta}}</a
-            >
+          <div class="hero__copy">
+            <p class="eyebrow">{{t.hero.eyebrow}}</p>
+            <h1 class="hero__title">
+              <span>{{t.hero.title}}</span>
+              <span class="hero__title-accent">
+                <span>{{t.hero.accent.first}}</span>
+                <span>{{t.hero.accent.second}}</span>
+              </span>
+            </h1>
+            <p class="hero__subtitle">{{t.hero.subtitle}}</p>
+            <div class="hero__actions">
+              <a
+                href="https://t.me/hannaivannikova"
+                class="btn btn--primary"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+                  <path d="M12 13l4-4" />
+                </svg>
+                {{t.hero.cta}}
+              </a>
+            </div>
+          </div>
+          <div class="hero__portrait">
+            <img
+              src="{{base}}/img/profile.jpeg"
+              alt="{{t.site.name}}"
+              width="640"
+              height="640"
+              fetchpriority="high"
+            />
+            <span class="hero__portrait-caption">{{t.site.name}}</span>
           </div>
         </div>
       </section>
@@ -107,15 +138,6 @@
             <h2 class="section__title">{{t.about.title}}</h2>
           </div>
           <div class="about__content">
-            <div class="about__photo">
-              <img
-                src="{{base}}/img/prifile.jpeg"
-                alt="{{t.site.name}}"
-                width="220"
-                height="220"
-                loading="lazy"
-              />
-            </div>
             <div class="about__text">
               <p class="about__intro">
                 <span>{{t.about.intro}}</span>
@@ -260,9 +282,7 @@
             <h2 class="section__title">{{t.pricing.title}}</h2>
           </div>
           <div class="pricing__card">
-            <div class="pricing__badge">{{t.pricing.badge}}</div>
             <h3 class="pricing__title">{{t.pricing.heading}}</h3>
-            <p class="pricing__desc">{{t.pricing.desc}}</p>
             <div class="pricing__meetings">
               <div class="meeting">
                 <div class="meeting__num">1</div>
@@ -307,11 +327,7 @@
               <p>{{t.pricing.support}}</p>
             </div>
             <p class="pricing__tagline">{{t.pricing.tagline}}</p>
-            <a
-              href="https://t.me/hannaivannikova"
-              class="btn btn--primary"
-              target="_blank"
-              rel="noopener"
+            <a href="index.html#contact" class="btn btn--primary"
               >{{t.pricing.cta}}</a
             >
           </div>
@@ -359,8 +375,24 @@
               class="btn btn--primary"
               target="_blank"
               rel="noopener"
-              >{{t.cta.cta}}</a
             >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M21.5 2L1.5 10l7.5 3 3 7.5 9-18z" />
+                <path d="M12 13l4-4" />
+              </svg>
+              {{t.cta.cta}}
+            </a>
           </div>
         </div>
       </section>
