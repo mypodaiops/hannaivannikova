@@ -41,8 +41,9 @@ Then open `http://0.0.0.0:8765/`.
 
 ## Deployment
 
-Live at: **<https://mypodaiops.github.io/hannaivannikova/>**  
-Custom domain (`hannaivannikova.com`) — will be enabled later.
+Live at: **<https://hannaivannikova.com/>**
+
+Hosted on GitHub Pages; the repository fallback URL is <https://mypodaiops.github.io/hannaivannikova/>.
 
 ## License
 
