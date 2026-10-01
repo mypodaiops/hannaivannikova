@@ -10,7 +10,7 @@
 
 ## Offer and CTA decisions
 
-- Keep the offer framed as three one-to-one educational investing sessions. Teach practical investing, account-opening steps, and asset evaluation through examples; learners make their own account and investment decisions.
+- Keep the offer framed as three one-to-one investing sessions covering broker selection and account opening, investment strategy, portfolio construction, regular investing, and retirement planning.
 - Hero and final contact buttons link directly to Telegram. Pricing and calculator CTAs lead to the current language's homepage contact section (`index.html#contact`).
 - Keep outbound Telegram links on `https://t.me/hannaivannikova`, and keep the site free of `iplan.ua` references and the removed `250€` price.
 
