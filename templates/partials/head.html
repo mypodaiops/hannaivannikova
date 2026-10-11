@@ -1,0 +1,34 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{metadata.title}}</title>
+  <meta name="description" content="{{metadata.description}}" />
+  {{#metadata.keywords}}
+  <meta name="keywords" content="{{metadata.keywords}}" />
+  {{/metadata.keywords}}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{metadata.title}}" />
+  <meta property="og:description" content="{{metadata.description}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{{base_url}}}/{{lang}}/{{metadata.path}}" />
+  <meta property="og:locale" content="{{og_locale}}" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{base}}/css/styles.css" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="{{base}}/img/favicon.svg" />
+  <link rel="apple-touch-icon" href="{{base}}/img/favicon.svg" />
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8af9e4f9-858d-4df4-8e0e-3ad8158bc47e"></script>
+</head>

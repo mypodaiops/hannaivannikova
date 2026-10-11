@@ -1,0 +1,46 @@
+<!-- ===== NAVIGATION ===== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="{{navigation.logo}}" class="logo">{{t.site.name}}</a>
+    <button class="nav-toggle" id="navToggle" aria-label="{{t.nav.menu}}" aria-controls="nav" aria-expanded="false">
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+    </button>
+    <nav class="nav" id="nav">
+      <ul class="nav__list">
+        <li>
+          <a href="{{navigation.home}}#about" class="nav__link">{{t.nav.about}}</a>
+        </li>
+        <li>
+          <a href="{{navigation.home}}#services" class="nav__link">{{t.nav.services}}</a>
+        </li>
+        <li>
+          <a href="{{navigation.home}}#pricing" class="nav__link">{{t.nav.format}}</a>
+        </li>
+        <li>
+          <a href="calculator.html" class="nav__link"
+            >{{t.nav.calculator}}</a
+          >
+        </li>
+        <li>
+          <a href="{{navigation.home}}#results" class="nav__link">{{t.nav.results}}</a>
+        </li>
+        <li>
+          <a href="{{navigation.home}}#contact" class="nav__link nav__link--cta"
+            >{{t.nav.book}}</a
+          >
+        </li>
+        <li class="nav__lang">
+          {{#languages}}
+          <a
+            href="{{base}}/{{code}}/{{page}}"
+            class="nav__link{{#active}} nav__link--current{{/active}}"
+            >{{name}}</a
+          >
+          {{/languages}}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

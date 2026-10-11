@@ -49,7 +49,19 @@ function loadTranslations() {
 	);
 }
 
-function renderPage(templatePath, lang, page, translations) {
+function loadPartials() {
+	const directory = path.join(TEMPLATES, "partials");
+	return Object.fromEntries(
+		fs.readdirSync(directory)
+			.filter((file) => file.endsWith(".html"))
+			.map((file) => [
+				path.basename(file, ".html"),
+				fs.readFileSync(path.join(directory, file), "utf-8"),
+			]),
+	);
+}
+
+function renderPage(templatePath, lang, page, translations, partials) {
 	const template = fs.readFileSync(templatePath, "utf-8");
 	const langMeta = LANGUAGES.find((l) => l.code === lang);
 	if (!langMeta) {
@@ -62,6 +74,10 @@ function renderPage(templatePath, lang, page, translations) {
 		active: l.code === lang,
 	}));
 
+	const isHome = page === "index.html";
+	const metadataPrefix = isHome ? "page" : "calc";
+	const copy = translations[lang];
+
 	const view = {
 		lang,
 		default_lang: DEFAULT_LANG,
@@ -70,14 +86,30 @@ function renderPage(templatePath, lang, page, translations) {
 		base_url: BASE_URL,
 		og_locale: langMeta.locale,
 		languages,
-		t: nestTranslations(translations[lang]),
+		metadata: {
+			title: copy[`${metadataPrefix}.title`],
+			description: copy[`${metadataPrefix}.description`],
+			keywords: isHome ? copy["page.keywords"] : undefined,
+			path: isHome ? "" : page,
+		},
+		navigation: {
+			logo: isHome ? "#" : "index.html",
+			home: isHome ? "" : "index.html",
+		},
+		t: nestTranslations(copy),
 	};
 
-	return mustache.render(template, view);
+	return mustache.render(template, view, (name) => {
+		if (!Object.hasOwn(partials, name)) {
+			throw new Error(`Missing partial "${name}" in ${page}`);
+		}
+		return partials[name];
+	});
 }
 
 function build() {
 	const translations = loadTranslations();
+	const partials = loadPartials();
 	const pages = fs
 		.readdirSync(TEMPLATES)
 		.filter((f) => f.endsWith(".html"))
@@ -94,6 +126,7 @@ function build() {
 				lang,
 				page,
 				translations,
+				partials,
 			);
 			fs.writeFileSync(path.join(outDir, page), html, "utf-8");
 		}

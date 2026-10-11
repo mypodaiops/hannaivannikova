@@ -34,6 +34,7 @@ Then open `http://0.0.0.0:8765/`.
 ## Project Layout
 
 - `templates/` — source HTML templates with Mustache placeholders
+- `templates/partials/` — shared head, navigation, and footer, included with `{{> name}}`
 - `translations.json` — UA/EN translation dictionary
 - `build.js` — static site generator
 - `uk/`, `en/` — generated language sites
