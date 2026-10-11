@@ -41,15 +41,15 @@ Then open `http://0.0.0.0:8765/`.
 
 ## Deployment
 
-Live at: **<https://hannaivannikova.com/>**
+Live at **<https://hannaivannikova.com/>**. GitHub Pages publishes the repository root from `master`.
 
-Hosted on GitHub Pages, publishing the repository root from `master`. The repository fallback URL is <https://mypodaiops.github.io/hannaivannikova/>.
+1. Make changes on a branch.
+2. Run `npm run build` and commit sources plus generated `uk/` and `en/` pages.
+3. Push the branch and open a pull request into `master`.
+4. Keep the branch up to date with `master` and ensure **Validate generated pages** passes.
+5. Merge to deploy automatically.
 
-Recommended workflow: make changes on a branch, rebuild, commit the sources and generated `uk/` and `en/` pages, then open a pull request into `master`.
-
-The **Validate site** GitHub Actions workflow runs on pull requests into `master` and pushes to `master`, using Node.js 24 and `npm ci`. It rebuilds the site and fails if generated pages differ from the committed files or new generated pages are untracked.
-
-To prevent unchecked changes reaching production, configure a branch ruleset for `master` requiring pull requests and the **Validate generated pages** status check. CI alone does not block direct pushes or the existing GitHub Pages deployment.
+Direct pushes to `master` are blocked by the branch ruleset.
 
 ## License
 
