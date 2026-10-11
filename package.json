@@ -2,7 +2,7 @@
   "name": "hannaivannikova-build",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://mypodaiops.github.io/hannaivannikova",
+  "homepage": "https://hannaivannikova.com",
   "scripts": {
     "build": "node build.js"
   },

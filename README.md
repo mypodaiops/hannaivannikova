@@ -14,7 +14,7 @@
 Install the build dependency once:
 
 ```bash
-npm install
+npm ci
 ```
 
 Generate the static site:
@@ -43,7 +43,13 @@ Then open `http://0.0.0.0:8765/`.
 
 Live at: **<https://hannaivannikova.com/>**
 
-Hosted on GitHub Pages; the repository fallback URL is <https://mypodaiops.github.io/hannaivannikova/>.
+Hosted on GitHub Pages, publishing the repository root from `master`. The repository fallback URL is <https://mypodaiops.github.io/hannaivannikova/>.
+
+Recommended workflow: make changes on a branch, rebuild, commit the sources and generated `uk/` and `en/` pages, then open a pull request into `master`.
+
+The **Validate site** GitHub Actions workflow runs on pull requests into `master` and pushes to `master`, using Node.js 24 and `npm ci`. It rebuilds the site and fails if generated pages differ from the committed files or new generated pages are untracked.
+
+To prevent unchecked changes reaching production, configure a branch ruleset for `master` requiring pull requests and the **Validate generated pages** status check. CI alone does not block direct pushes or the existing GitHub Pages deployment.
 
 ## License
 
