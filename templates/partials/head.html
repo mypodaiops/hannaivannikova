@@ -7,12 +7,16 @@
   {{#metadata.keywords}}
   <meta name="keywords" content="{{metadata.keywords}}" />
   {{/metadata.keywords}}
+  <link rel="canonical" href="{{{metadata.url}}}" />
+  {{#metadata.alternates}}
+  <link rel="alternate" hreflang="{{code}}" href="{{{url}}}" />
+  {{/metadata.alternates}}
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{metadata.title}}" />
   <meta property="og:description" content="{{metadata.description}}" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{{base_url}}}/{{lang}}/{{metadata.path}}" />
+  <meta property="og:url" content="{{{metadata.url}}}" />
   <meta property="og:locale" content="{{og_locale}}" />
 
   <!-- Fonts -->

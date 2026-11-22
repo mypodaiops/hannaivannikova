@@ -30,14 +30,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site
-        run: npm run build
+      - name: Build and test site
+        run: npm test
 
       - name: Check generated pages are committed
         run: |
-          git diff --exit-code -- uk/ en/
-          if [ -n "$(git ls-files --others --exclude-standard -- uk/ en/)" ]; then
-            echo "::error::Uncommitted generated pages found. Run npm run build and commit uk/ and en/."
-            git ls-files --others --exclude-standard -- uk/ en/
+          changes=$(git status --porcelain -- uk/ en/ sitemap.xml)
+          if [ -n "$changes" ]; then
+            echo "::error::Run npm run build and commit generated files."
+            printf '%s\n' "$changes"
             exit 1
           fi

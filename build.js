@@ -66,6 +66,11 @@ function loadPartials() {
 	);
 }
 
+function pageUrl(lang, page) {
+	const filename = page === "index.html" ? "" : encodeURIComponent(page);
+	return new URL(`/${lang}/${filename}`, BASE_URL).href;
+}
+
 function renderPage(templatePath, lang, page, translations, partials) {
 	const template = fs.readFileSync(templatePath, "utf-8");
 	const langMeta = LANGUAGES.find((l) => l.code === lang);
@@ -85,17 +90,19 @@ function renderPage(templatePath, lang, page, translations, partials) {
 
 	const view = {
 		lang,
-		default_lang: DEFAULT_LANG,
 		base: "..",
 		page,
-		base_url: BASE_URL,
 		og_locale: langMeta.locale,
 		languages,
 		metadata: {
 			title: copy[`${metadataPrefix}.title`],
 			description: copy[`${metadataPrefix}.description`],
 			keywords: isHome ? copy["page.keywords"] : undefined,
-			path: isHome ? "" : page,
+			url: pageUrl(lang, page),
+			alternates: [
+				...LANGUAGES.map(({ code }) => ({ code, url: pageUrl(code, page) })),
+				{ code: "x-default", url: pageUrl(DEFAULT_LANG, page) },
+			],
 		},
 		navigation: {
 			logo: isHome ? "#" : "index.html",
@@ -111,6 +118,20 @@ function renderPage(templatePath, lang, page, translations, partials) {
 		}
 		return partials[name];
 	});
+}
+
+function writeSitemap(pages) {
+	const entries = LANGUAGES.flatMap(({ code }) =>
+		pages.map((page) => `  <url><loc>${pageUrl(code, page)}</loc></url>`),
+	);
+	const xml = [
+		'<?xml version="1.0" encoding="UTF-8"?>',
+		'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+		...entries,
+		"</urlset>",
+		"",
+	].join("\n");
+	fs.writeFileSync(path.join(OUT, "sitemap.xml"), xml, "utf-8");
 }
 
 function build() {
@@ -137,6 +158,7 @@ function build() {
 			fs.writeFileSync(path.join(outDir, page), html, "utf-8");
 		}
 	}
+	writeSitemap(pages);
 }
 
 build();

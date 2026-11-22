@@ -17,7 +17,7 @@ Install the build dependency once:
 npm ci
 ```
 
-Generate the static site:
+Generate the static site and sitemap:
 
 ```bash
 npm run build
@@ -29,7 +29,7 @@ Serve locally:
 python3 -m http.server 8765 --bind 0.0.0.0
 ```
 
-Then open `http://0.0.0.0:8765/`.
+Then open `http://0.0.0.0:8765/`. Run `npm test` to rebuild and check the SEO output.
 
 ## Project Layout
 
@@ -38,6 +38,7 @@ Then open `http://0.0.0.0:8765/`.
 - `translations.json` — UA/EN translation dictionary
 - `build.js` — static site generator
 - `uk/`, `en/` — generated language sites
+- `sitemap.xml` — generated list of canonical URLs; `robots.txt` points crawlers to it
 - `index.html`, `calculator.html`, `book.html`, `404.html` — root redirects
 
 ## Deployment
@@ -45,7 +46,7 @@ Then open `http://0.0.0.0:8765/`.
 Live at **<https://hannaivannikova.com/>**. GitHub Pages publishes the repository root from `master`.
 
 1. Make changes on a branch.
-2. Run `npm run build` and commit sources plus generated `uk/` and `en/` pages.
+2. Run `npm run build` and commit sources plus generated `uk/`, `en/`, and `sitemap.xml`.
 3. Push the branch and open a pull request into `master`.
 4. Keep the branch up to date with `master` and ensure **Validate generated pages** passes.
 5. Merge to deploy automatically.
