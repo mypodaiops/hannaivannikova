@@ -7,7 +7,7 @@ const BASE_URL = pkg.homepage;
 
 // Add a new language by adding an entry here and adding its translations to
 // translations.json. If the default language changes, update the root redirect
-// files (index.html, calculator.html, 404.html) accordingly.
+// files (index.html, calculator.html, book.html, 404.html) accordingly.
 const LANGUAGES = [
 	{ code: "uk", name: "UA", locale: "uk_UA" },
 	{ code: "en", name: "EN", locale: "en_US" },
@@ -17,6 +17,11 @@ const DEFAULT_LANG = LANGUAGES[0].code;
 const ROOT = __dirname;
 const TEMPLATES = path.join(ROOT, "templates");
 const OUT = ROOT;
+const METADATA_PREFIXES = {
+	"index.html": "page",
+	"calculator.html": "calc",
+	"book.html": "book",
+};
 
 /**
  * Turn a flat translation object like { "nav.about": "..." }
@@ -75,7 +80,7 @@ function renderPage(templatePath, lang, page, translations, partials) {
 	}));
 
 	const isHome = page === "index.html";
-	const metadataPrefix = isHome ? "page" : "calc";
+	const metadataPrefix = METADATA_PREFIXES[page];
 	const copy = translations[lang];
 
 	const view = {
@@ -95,6 +100,7 @@ function renderPage(templatePath, lang, page, translations, partials) {
 		navigation: {
 			logo: isHome ? "#" : "index.html",
 			home: isHome ? "" : "index.html",
+			bookCurrent: page === "book.html" ? "page" : "false",
 		},
 		t: nestTranslations(copy),
 	};

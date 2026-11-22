@@ -38,7 +38,7 @@ Then open `http://0.0.0.0:8765/`.
 - `translations.json` — UA/EN translation dictionary
 - `build.js` — static site generator
 - `uk/`, `en/` — generated language sites
-- `index.html`, `calculator.html`, `404.html` — root redirects
+- `index.html`, `calculator.html`, `book.html`, `404.html` — root redirects
 
 ## Deployment
 

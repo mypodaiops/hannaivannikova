@@ -1910,6 +1910,47 @@ h4 {
 	border-radius: 8px;
 }
 
+.book {
+	padding-top: calc(var(--header-height) + var(--space-12));
+}
+
+.book__layout {
+	display: grid;
+	gap: var(--space-8);
+	max-width: 960px;
+	margin-inline: auto;
+	align-items: start;
+}
+
+.book__photo {
+	display: block;
+	width: min(100%, 360px);
+	height: auto;
+	margin-inline: auto;
+	border-radius: 8px;
+}
+
+.book__description p {
+	margin-bottom: var(--space-4);
+}
+
+.book__description .btn {
+	margin-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+	.book__layout {
+		grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+		gap: var(--space-12);
+	}
+}
+
+@media (max-width: 1099px) {
+	.nav {
+		overflow-y: auto;
+	}
+}
+
 @media (min-width: 768px) {
 	.hero__actions {
 		justify-content: flex-start;

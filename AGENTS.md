@@ -5,7 +5,7 @@
 - `templates/*.html` and `translations.json` are build inputs. `build.js` renders the static pages in `uk/` and `en/`.
 - `website-content-uk.md` is the authoritative Ukrainian copy; keep it aligned with the Ukrainian translations. English copy is maintained in `translations.json`.
 - Edit source files, run `npm run build`, and commit generated `uk/` and `en/` pages with their sources.
-- Ukrainian (`uk`) is the default language. Root redirects (`index.html`, `calculator.html`, `404.html`) are maintained by hand and must be updated if the default changes.
+- Ukrainian (`uk`) is the default language. Root redirects (`index.html`, `calculator.html`, `book.html`, `404.html`) are maintained by hand and must be updated if the default changes.
 - Keep translations as plain text because Mustache escapes their values. Put markup in templates and keep each text element in one language.
 
 ## Offer and CTA decisions
