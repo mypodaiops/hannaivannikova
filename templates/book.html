@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{lang}}">
+  {{> head}}
+  <body>
+    {{> navigation}}
+
+    <main>
+      <section class="section book" aria-labelledby="book-title">
+        <div class="container">
+          <div class="section__header">
+            <h1 class="section__title" id="book-title">{{t.book.title}}</h1>
+          </div>
+          <div class="book__layout">
+            <img
+              class="book__photo"
+              src="{{base}}/img/book-cover.jpeg"
+              width="800"
+              height="1200"
+              alt="{{t.book.photo_alt}}"
+            />
+            <div class="book__description">
+              <p>{{t.book.paragraph.1}}</p>
+              <p>{{t.book.paragraph.2}}</p>
+              <p>{{t.book.paragraph.3}}</p>
+              <p>{{t.book.paragraph.4}}</p>
+              <a class="btn btn--primary" href="{{t.book.amazon_url}}">{{t.book.cta}}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer}}
+    <script src="{{base}}/js/main.js"></script>
+  </body>
+</html>
